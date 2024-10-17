@@ -3,7 +3,7 @@ Version:	54080
 Release:	2
 Summary:	Visual help for TikZ based on images with minimum text
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/visualtikz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/visualtikz
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/visualtikz.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/visualtikz.doc.r%{version}.tar.xz
