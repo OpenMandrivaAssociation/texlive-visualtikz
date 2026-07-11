@@ -1,36 +1,22 @@
-Name:		texlive-visualtikz
-Version:	54080
-Release:	2
+%global tl_name visualtikz
+%global tl_revision 54080
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.65
+Release:	%{tl_revision}.1
 Summary:	Visual help for TikZ based on images with minimum text
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/visualtikz
+URL:		https://www.ctan.org/tex-archive/info/visualtikz
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/visualtikz.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/visualtikz.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/visualtikz.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/visualtikz.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-Visual help for TikZ based on images with minimum text: an
-image per command or parameter. The document is in French, but
-will be translated into English later.
+Visual help for TikZ based on images with minimum text: an image per
+command or parameter. The document is in French, but will be translated
+into English later.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/doc/latex/visualtikz
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
